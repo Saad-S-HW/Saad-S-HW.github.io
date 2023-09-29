@@ -12,9 +12,6 @@ header {
     color:#fff9f8;
     text-align: center;
     padding: 20px;
-    #grad {
-        background-image: linear-gradient(to bottom right, red, yellow);
-      }
 }
 
 .headeraH1 {
