@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Registration Form</h1>
+    <form id="registrationForm" onsubmit="return false">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+        <div class="error" id="usernameError"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <div class="error" id="emailError"></div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <div class="error" id="passwordError"></div>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+        <div class="error" id="confirmPasswordError"></div>
+
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const usernameError = document.getElementById('usernameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+        // Function to validate the email format
+        function validateEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
+        }
+
+        // Function to validate the password length
+        function validatePasswordLength(password) {
+            return password.length >= 8;
+        }
+
+        // Function to check if the passwords match
+        function passwordsMatch() {
+            return password.value === confirmPassword.value;
+        }
+
+        // Real-time validation for the username
+        username.addEventListener('blur', () => {
+            if (username.value.trim() === '') {
+                usernameError.textContent = 'Username is required';
+                username.classList.add('error');
+            } else {
+                usernameError.textContent = '';
+                username.classList.remove('error');
+                username.classList.add('success');
+            }
+        });
+
+        // Real-time validation for the email
+        email.addEventListener('blur', () => {
+            if (email.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                email.classList.add('error');
+            } else if (!validateEmail(email.value)) {
+                emailError.textContent = 'Invalid email format';
+                email.classList.add('error');
+            } else {
+                emailError.textContent = '';
+                email.classList.remove('error');
+                email.classList.add('success');
+            }
+        });
+
+        // Real-time validation for the password
+        password.addEventListener('blur', () => {
+            if (password.value.trim() === '') {
+                passwordError.textContent = 'Password is required';
+                password.classList.add('error');
+            } else if (!validatePasswordLength(password.value)) {
+                passwordError.textContent = 'Password must be at least 8 characters';
+                password.classList.add('error');
+            } else {
+                passwordError.textContent = '';
+                password.classList.remove('error');
+                password.classList.add('success');
+            }
+        });
+
+        // Real-time validation for the confirm password
+        confirmPassword.addEventListener('blur', () => {
+            if (confirmPassword.value.trim() === '') {
+                confirmPasswordError.textContent = 'Confirm Password is required';
+                confirmPassword.classList.add('error');
+            } else if (!passwordsMatch()) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+                confirmPassword.classList.add('error');
+            } else {
+                confirmPasswordError.textContent = '';
+                confirmPassword.classList.remove('error');
+                confirmPassword.classList.add('success');
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', () => {
+            if (username.value.trim() === '') {
+                usernameError.textContent = 'Username is required';
+                username.classList.add('error');
+            }
+            if (email.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                email.classList.add('error');
+            } else if (!validateEmail(email.value)) {
+                emailError.textContent = 'Invalid email format';
+                email.classList.add('error');
+            }
+            if (password.value.trim() === '') {
+                passwordError.textContent = 'Password is required';
+                password.classList.add('error');
+            } else if (!validatePasswordLength(password.value)) {
+                passwordError.textContent = 'Password must be at least 8 characters';
+                password.classList.add('error');
+            }
+            if (confirmPassword.value.trim() === '') {
+                confirmPasswordError.textContent = 'Confirm Password is required';
+                confirmPassword.classList.add('error');
+            } else if (!passwordsMatch()) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+                confirmPassword.classList.add('error');
+            }
+
+            if (usernameError.textContent === '' && emailError.textContent === '' && passwordError.textContent === '' && confirmPasswordError.textContent === '') {
+                // Form submission successful (for this example, we prevent the actual submission)
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>
