@@ -25,6 +25,7 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="form.html">User Registration</a></li>
     </ul>
     </nav>
 
@@ -105,5 +106,30 @@
       <p>&copy; 2024 Wanderlust Voyages | Travel Agency. All rights reserved.</p>
     </footer>
   </div>
+  <script> 
+  let currentIndex = 0;
+  let images = [];
+  const interval = 2000; // This sets the interval to 2 seconds (2000 milliseconds).
+  images = [
+    "images/img-1.jpeg",
+    "images/img-2.jpeg",
+    "images/img-3.jpeg",
+    "images/img-4.jpeg",
+    "images//img-5.webp",
+    "images/img-6.jpeg",
+    "images/img-7.jpeg",
+    "images/img-8.webp",
+    "images/img-9.jpeg"
+];
+function changeImage() {
+    const imageElement = document.querySelector('img[name="slide"]');
+    if (imageElement) {
+        imageElement.src = images[currentIndex];
+        currentIndex = (currentIndex + 1) % images.length; // Loop through images
+    }
+}
+setInterval(changeImage, interval);
+window.addEventListener('load', changeImage);
+</script>
 </body>
 </html>
