@@ -1,6 +1,6 @@
 # Saad-S-HW.github.io
 
-Images Slidehshow Report:
+Images Slideshow Report:
 
  At the beginning of the script, 'currentIndex' is set to 0, indicating the current image index being displayed.
 An empty array 'images' is created to store the paths to the images that will be displayed in the slideshow.
