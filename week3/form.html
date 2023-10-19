@@ -122,14 +122,36 @@
         });
 
         // Form submission
-        form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', () => {
+            if (username.value.trim() === '') {
+                usernameError.textContent = 'Username is required';
+                username.classList.add('error');
+            }
+            if (email.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                email.classList.add('error');
+            } else if (!validateEmail(email.value)) {
+                emailError.textContent = 'Invalid email format';
+                email.classList.add('error');
+            }
+            if (password.value.trim() === '') {
+                passwordError.textContent = 'Password is required';
+                password.classList.add('error');
+            } else if (!validatePasswordLength(password.value)) {
+                passwordError.textContent = 'Password must be at least 8 characters';
+                password.classList.add('error');
+            }
+            if (confirmPassword.value.trim() === '') {
+                confirmPasswordError.textContent = 'Confirm Password is required';
+                confirmPassword.classList.add('error');
+            } else if (!passwordsMatch()) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+                confirmPassword.classList.add('error');
+            }
 
             if (usernameError.textContent === '' && emailError.textContent === '' && passwordError.textContent === '' && confirmPasswordError.textContent === '') {
                 // If there are no error messages, Form submission successful
                 alert('Form submitted successfully!');
-            }
-            else{
-                event.preventDefault();
             }
         });
     </script>
