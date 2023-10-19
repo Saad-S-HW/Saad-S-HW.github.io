@@ -105,30 +105,40 @@
       <p>&copy; 2024 Wanderlust Voyages | Travel Agency. All rights reserved.</p>
     </footer>
   </div>
-  <script> 
-  let currentIndex = 0;
-  let images = [];
-  const interval = 2000; // This sets the interval to 2 seconds (2000 milliseconds).
+ <script>
+  // Initialize variables
+  let currentIndex = 0; // Keep track of the current image index
+  let images = []; // An array to store image file paths
+  const interval = 2000; // Interval for changing images (2 seconds or 2000 milliseconds)
+
+  // Populate the 'images' array with image file paths
   images = [
     "images/img-1.jpeg",
     "images/img-2.jpeg",
     "images/img-3.jpeg",
     "images/img-4.jpeg",
-    "images//img-5.webp",
+    "images/img-5.webp", // Fixed the typo in the image path
     "images/img-6.jpeg",
     "images/img-7.jpeg",
     "images/img-8.webp",
     "images/img-9.jpeg"
-];
-function changeImage() {
+  ];
+
+  // Function to change the displayed image
+  function changeImage() {
     const imageElement = document.querySelector('img[name="slide"]');
     if (imageElement) {
-        imageElement.src = images[currentIndex];
-        currentIndex = (currentIndex + 1) % images.length; // Loop through images
+      // Set the source of the image to the current index in the 'images' array
+      imageElement.src = images[currentIndex];
+      currentIndex = (currentIndex + 1) % images.length; // Loop through images, resetting at the end
     }
-}
-setInterval(changeImage, interval);
-window.addEventListener('load', changeImage);
-</script>
+  }
+
+  // Call the 'changeImage' function at a regular interval to create a slideshow
+  setInterval(changeImage, interval);
+
+  // Call 'changeImage' when the window has loaded to show the initial image
+  window.addEventListener('load', changeImage);
+</script>  
 </body>
 </html>
