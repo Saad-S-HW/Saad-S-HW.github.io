@@ -26,9 +26,8 @@ HTML:
 '<body>': The main content of the webpage is placed within the '<body>' tag.
 '<form id="form">': This opening <form> tag defines the user registration form.
 Input Fields: The form includes several input fields within '<div>' elements with the class "input-control." Each input field is labeled with a '<label>' element and includes an <input> element for user input. These input fields include "Username," "Email," "Password," and "Confirm Password." They are given unique IDs for identification in JavaScript.
-"For example: <label for="username">Username:</label> and <input type="text" id="username" name="username" placeholder="Enter your username">."
 Additionally, there are '<div>' elements with the class "error" and unique IDs (e.g., "usernameError," "emailError") to display error messages related to the input fields.
-'<button type="submit" id="submitButton">Submit</button>': The form includes a submit button with the 'type' attribute set to "submit," which triggers the form's submission. It has an 'id' attribute of "submitButton" for JavaScript access.
+The form includes a submit button with the 'type' attribute set to "submit," which triggers the form's submission. It has an 'id' attribute of "submitButton" for JavaScript access.
 
 JS:
 At the end of the HTML code, a '<script>' section is used to include JavaScript code. This code is responsible for real-time form validation and handling form submission.
