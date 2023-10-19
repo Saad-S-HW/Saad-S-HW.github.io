@@ -3,11 +3,11 @@
 Images Slideshow Report (Image carousel slider):
 
 HTML:
-    <!-- Banner Section -->
+   " <!-- Banner Section -->
     <section class="banner-container">
       <img name="slide" alt="Alt goes here" title="Title goes here"
-      width="70%"/>
-    </section> : In summary, this HTML code creates a banner section that contains an image. The image has attributes for alternative text ("alt") and a title ("title"). The "name" attribute, although used here, is not a standard attribute for images. The "width" attribute controls the image's display size. The image can be dynamically changed using JavaScript. 
+      width="140%"/>
+    </section>" : In summary, this HTML code creates a banner section that contains an image. The image has attributes for alternative text ("alt") and a title ("title"). The "name" attribute, although used here, is not a standard attribute for images. The "width" attribute controls the image's display size. The image can be dynamically changed using JavaScript. 
 
 JS:
  At the beginning of the script, 'currentIndex' is set to 0, indicating the current image index being displayed.
@@ -36,3 +36,5 @@ JavaScript variables are declared to access various HTML elements by their IDs (
 Functions are defined to validate email format, password length, and check if passwords match.
 Event listeners are added to the form and individual input elements to perform real-time validation when users interact with the form.
 The form's submission is handled, and if there are no validation errors, an alert is displayed to indicate a successful form submission.
+
+
