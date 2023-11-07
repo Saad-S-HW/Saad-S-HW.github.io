@@ -32,7 +32,7 @@ btn.addEventListener("click", () => {
                 // Create HTML content to display weather information
                 const weatherHTML = `
                     <p>The Weather in ${city} is ${weatherDescription}</p>
-                    <p>The Temperature is ${mainTemperature} °C and the Wind Speed is ${windSpeed}m/s</p>
+                    <p>The Temperature is ${(mainTemperature-273.15).toFixed(2)} °C and the Wind Speed is ${windSpeed}m/s</p>
                 `;
                 weatherInfo.innerHTML = weatherHTML; // Display weather information
             } else {
