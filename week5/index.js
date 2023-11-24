@@ -29,11 +29,11 @@ db.connect( (error) => {
       } else {
         console.log("MYSQL Connected")
       }
-})
+});
 
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
 app.listen(5001, () => {
     console.log("Server started on Port 5001");
-})  
+});  
