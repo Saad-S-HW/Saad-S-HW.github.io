@@ -26,7 +26,7 @@ exports.register = (req, res) => {
           console.log(error);
         }
   
-        if (results.length > 0) {
+        else if (results.length > 0) {
           return res.render("register", {
             message: "This email is already registered.",
           });
